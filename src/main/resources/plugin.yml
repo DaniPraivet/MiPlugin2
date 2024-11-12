@@ -1,0 +1,5 @@
+main: mp.danipraivet.MiPlugin2
+version: 1.0.0
+name: MiPlugin2
+author: DaniPraivet
+api-version: 1.13
