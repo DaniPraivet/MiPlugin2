@@ -14,7 +14,7 @@ import java.util.Date;
 
 public class MainCommand implements CommandExecutor {
 
-    private MiPlugin2 plugin;
+    private final MiPlugin2 plugin;
 
     public MainCommand(MiPlugin2 plugin) {
         this.plugin = plugin;
@@ -23,7 +23,7 @@ public class MainCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String alias, String[] args) {
 
-        if(!(sender instanceof Player)){
+        if(!(sender instanceof Player player)){
             // Consola
             sender.sendMessage(
                     ChatColor.translateAlternateColorCodes('&' , MiPlugin2.prefix +"&cSolamente puedes usar este comando si eres un jugador"));
@@ -31,8 +31,6 @@ public class MainCommand implements CommandExecutor {
         }
 
         // Jugador
-        Player player = (Player) sender;
-
 
 
         // /miplugin args[0] args[1] args[2]
@@ -51,14 +49,12 @@ public class MainCommand implements CommandExecutor {
                 // /miplugin get <author/version>
                 subCommandGet(sender, args);
             }
-            else{
-
+            else {
+                // /miplugin
+                help(sender);
             }
         }
-        else {
-            // /miplugin
-            help(sender);
-        }
+
 
         return true;
         // Mensaje de error
