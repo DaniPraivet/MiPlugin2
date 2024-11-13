@@ -3,3 +3,9 @@ version: ${app.version}
 name: MiPlugin2
 author: DaniPraivet
 api-version: 1.13
+
+commands:
+  miplugin:
+    description: Comando principal del plugin MiPlugin2
+    aliases:
+      - mp

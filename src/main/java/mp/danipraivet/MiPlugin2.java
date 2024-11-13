@@ -1,17 +1,21 @@
 package mp.danipraivet;
 
+import mp.danipraivet.commands.MainCommand;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class MiPlugin2 extends JavaPlugin {
 
-    public String prefix = "&8[&c&lMiPlugin²&8] ";
+    public static String prefix = "&8[&c&lMiPlugin²&8] ";
 
-    private String version = getDescription().getVersion();
+    private final String version = getDescription().getVersion();
 
     @Override
     public void onEnable() {
+
+        registerCommands();
+
         String version = "(v" + getDescription().getVersion() + ")";
 
         Bukkit.getConsoleSender().sendMessage(
@@ -27,4 +31,9 @@ public class MiPlugin2 extends JavaPlugin {
         Bukkit.getConsoleSender().sendMessage(
                 ChatColor.translateAlternateColorCodes('&', "&e Gracias por usar mi plugin :>"));
     }
+
+    public void registerCommands(){
+        this.getCommand("miplugin").setExecutor(new MainCommand(this));
+    }
+
 }
