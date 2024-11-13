@@ -33,6 +33,6 @@ public class PlayerListener implements Listener {
 
         Location location = new Location(Bukkit.getWorld("spawn"), 0 , 77, 0, 90, 0); // Necesitamos que spawn sea un objeto tipo mundo
 
-        player.teleport(location);
+        player.teleport(location); // Aún no teletransporta al jugador
     }
 }
