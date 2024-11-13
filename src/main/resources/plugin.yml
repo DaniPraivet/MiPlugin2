@@ -1,5 +1,5 @@
 main: mp.danipraivet.MiPlugin2
-version: 1.0.0
+version: ${app.version}
 name: MiPlugin2
 author: DaniPraivet
 api-version: 1.13
