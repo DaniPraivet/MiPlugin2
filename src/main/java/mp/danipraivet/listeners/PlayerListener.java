@@ -31,8 +31,8 @@ public class PlayerListener implements Listener {
 
         player.sendMessage(MessageUtils.getColoredMessage(MiPlugin2.prefix +"&a Hola o/"));
 
-        Location location = new Location(Bukkit.getWorld("spawn"), 0 , 77, 0, 90, 0); // Necesitamos que spawn sea un objeto tipo mundo
+        Location location = new Location(Bukkit.getWorld("world"), 0 , 77, 0, 90, 0); // world es el nombre en un server paper
 
-        player.teleport(location); // Aún no teletransporta al jugador.
+        player.teleport(location);
     }
 }
