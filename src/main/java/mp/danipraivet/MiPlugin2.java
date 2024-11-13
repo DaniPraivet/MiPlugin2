@@ -1,6 +1,7 @@
 package mp.danipraivet;
 
 import mp.danipraivet.commands.MainCommand;
+import mp.danipraivet.listeners.PlayerListener;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -15,6 +16,8 @@ public class MiPlugin2 extends JavaPlugin {
     public void onEnable() {
 
         registerCommands();
+
+        registerEvents();
 
         String version = "(v" + getDescription().getVersion() + ")";
 
@@ -34,6 +37,10 @@ public class MiPlugin2 extends JavaPlugin {
 
     public void registerCommands(){
         this.getCommand("miplugin").setExecutor(new MainCommand(this));
+    }
+
+    public void registerEvents(){
+        getServer().getPluginManager().registerEvents(new PlayerListener(),this);
     }
 
 }
