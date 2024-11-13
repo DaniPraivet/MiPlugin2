@@ -7,8 +7,11 @@ import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
+import org.bukkit.event.player.PlayerEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 
 public class PlayerListener implements Listener {
 
@@ -25,7 +28,7 @@ public class PlayerListener implements Listener {
 
     @EventHandler
     public void onJoin(PlayerJoinEvent event) {
-        // 0.5 75 0.5 spawn
+        // 0.5 77 0.5 spawn
 
         Player player = event.getPlayer();
 
@@ -35,4 +38,15 @@ public class PlayerListener implements Listener {
 
         player.teleport(location);
     }
+
+    @EventHandler
+    public void onBlockBreak(BlockBreakEvent event) {
+        Player player = event.getPlayer();
+
+        if(player.getWorld().getName().equals("spawn") && !player.hasPermission("miplugin.admin")){ // Nos inventamos un permiso
+            event.setCancelled(true);
+            player.sendMessage(MessageUtils.getColoredMessage(MiPlugin2.prefix +"&cNo puedes romper bloques en el aquí"));
+        }
+    }
+
 }

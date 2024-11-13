@@ -9,3 +9,7 @@ commands:
     description: Comando principal del plugin MiPlugin2
     aliases:
       - mp
+
+permissions:
+  miplugin.admin:
+    description: Permiso de administrador del plugin
